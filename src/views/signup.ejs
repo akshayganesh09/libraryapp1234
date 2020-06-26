@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    
+    
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+  
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+		<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
+    <title><%=title%></title>
+    <link rel="stylesheet" type="text/css" href="css/style1.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-sm bg-bg-info  navbar-dark">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="#">HOME</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">FILE</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">VIEW</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+             HELP
+            </a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="#">About</a>
+              <a class="dropdown-item" href="#">check for update</a>
+              <a class="dropdown-item" href="#">Exit</a>
+            </div>
+          </li>
+        </ul>
+        <ul class="nav justify-content-end">
+          <li class="nav-item">
+            <a class="nav-link active" href="http://localhost:5000/login">LogIn</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="http://localhost:5000/">Library</a>
+          </li>
+          <!-- <li class="nav-item">
+            <a class="nav-link active" href="#">SignIn</a>
+          </li> -->
+        </ul>
+        </nav>
+<br>
+<div class="login-box">
+    <form action="login/index1.html" onsubmit="return validation()">
+    <h3>_Library_</h3>
+    <h1>Sign Up</h1>
+    <%for(i=0;i<signup.length;i++){%>
+    <div class="textbox">
+       
+        <<%=signup[i].type%> type="<%=signup[i].input%>" placeholder="<%=signup[i].value%>" name="<%=signup[i].assign%>" id="<%=signup[i].assign%>">
+        <!-- <input type="text" placeholder="First Name" name="user" id="user"> -->
+        <br>
+        <<%=signup[i].input1%> id="<%=signup[i].tom%>" class="text-danger"></span>
+        <!-- <span id="username" class="text-danger"></span> -->
+    </div>
+    <%}%>
+    
+    <!-- <div class="textbox">
+        <i class="fa fa-envelope" aria-hidden="true"></i>
+        <input type="email" placeholder="mail ID" name="email" id="email">
+        <br>
+        <span id="gmail" class="text-danger"></span>
+
+    </div>
+    <div class="textbox">
+        <i class="fa fa-unlock-alt" aria-hidden="true"></i>
+        <input type="password" placeholder=" Set Password" name="pass" id="pass">
+        <br>
+        <span id="pasword" class="text-danger"></span>
+
+    </div>
+    <div class="textbox">
+        <i class="fa fa-key" aria-hidden="true"></i>
+        <input type="password" placeholder=" Confirm Password" name="conpass" id="conpass">
+        <br>
+        <span id="confpass" class="text-danger"></span>
+
+    </div> -->
+    <div class="form-check">
+        <label>
+        <input type="radio" value="male" name="gender">
+        <i class="fa fa-male" aria-hidden="true"></i>  male 
+          <span></span>
+        </label>
+        <label>
+            <input type="radio" value="female" name="gender">
+            <i class="fa fa-female" aria-hidden="true"></i>  female
+              <span></span>
+            </label>
+      </div>
+      <!-- <div class="textbox">
+        <i class="fa fa-mobile" aria-hidden="true"></i>
+        <input type="number" placeholder="Phone Number" name="number" id="number">
+        <br>
+        <span id="mnumber" class="text-danger"></span>
+    </div> -->
+
+      <div class="custom-control custom-checkbox">
+        <input type="checkbox" class="custom-control-input" id="customCheck1">
+        <label class="custom-control-label" for="customCheck1">Remember Me</label>
+      </div>
+      <br>
+    <input type="submit" name="submit" value="submit" class="btn btn-success">
+  </form>
+   
+</div>
+<div class="footer" style="left: 0; bottom: 0; margin-bottom: 0px; padding-top: 10px; margin-top: 660px; padding-left: 2px;">
+
+      <h6><strong>Follow Us</strong> <br> <span class="fa fa-2x fa-instagram" aria-hidden="true"></span> <span class="fa fa-2x fa-facebook" aria-hidden="true"></span> <span class="fa fa-2x fa-youtube" aria-hidden="true"></span></h6>
+ 
+  </div>
+
+
+
+
+
+<script type="text/javascript">
+
+          function validation(){
+
+              var user = document.getElementById('user').value;
+              var email = document.getElementById('email').value;
+              var pass = document.getElementById('pass').value;
+              var conpass = document.getElementById('conpass').value;
+              var number = document.getElementById('number').value;
+
+
+// user
+
+              if (user ==""){
+
+                  document.getElementById('username').innerHTML = " **please fill the user name";
+                  return false;
+              }
+              else{
+                  document.getElementById('username').innerHTML = "";
+              }
+              if((user.length <=2)||(user.length >20)){
+
+                  document.getElementById('username').innerHTML = " ** user name must be between 2 to 20 characters";
+                  return false;
+              }
+              else{
+                  document.getElementById('username').innerHTML = "";
+              }    
+              if(!isNaN(user)){
+                  document.getElementById('username').innerHTML = " ** user name must not be integers";
+                  return false;
+              }
+              else{
+                  document.getElementById('username').innerHTML = "";
+              }    
+
+
+
+// email
+              if (email ==""){
+
+                  document.getElementById('gmail').innerHTML = " **please fill the email Id";
+                  return false;
+              }
+              else{
+                  document.getElementById('gmail').innerHTML = "";
+              }    
+              if(email.indexOf('@') <=0){
+
+                  document.getElementById('gmail').innerHTML = " **invalid email Id";
+                  return false;
+              }
+              else{
+                  document.getElementById('gmail').innerHTML = "";
+              }    
+              if((email.charAt(email.length-4)!='.') && (email.charAt(email.length-3)!='.')){
+
+                  document.getElementById('gmail').innerHTML = " **invalid email Id";
+                  return false;
+              }
+              else{
+                  document.getElementById('gmail').innerHTML = "";
+              }    
+
+// password
+              if (pass ==""){
+
+                  document.getElementById('pasword').innerHTML = " **please set a password";
+                  return false;
+              }
+              else{
+                  document.getElementById('pasword').innerHTML = "";
+              }    
+              if(pass.length<=6){
+
+                  document.getElementById('pasword').innerHTML = " ** password is too short ";
+                  return false;
+              } 
+              else{
+                  document.getElementById('pasword').innerHTML = "";
+              }    
+              if(pass.search(/[0-9]/)==-1){
+
+                  document.getElementById('pasword').innerHTML = " ** password must contain atleat 1 number";
+                  return false;
+              }
+              else{
+                  document.getElementById('pasword').innerHTML = "";
+              }    
+              if(pass.search(/[A-Z]/)==-1){
+
+                  document.getElementById('pasword').innerHTML = " ** password must contain atleat 1 uppercase character";
+                  return false;
+              }
+              else{
+                  document.getElementById('pasword').innerHTML = "";
+              }    
+              if(pass.search(/[a-z]/)==-1){
+
+                  document.getElementById('pasword').innerHTML = " ** password must contain atleat 1 Lowercase character";
+                  return false;
+              }
+              else{
+                  document.getElementById('pasword').innerHTML = "";
+              }    
+              if(pass.search(/[!/@/#/$/%/^/&/*/_/+/./?/]/)==-1){
+
+                  document.getElementById('pasword').innerHTML = " ** password must contain atleat 1 special character";
+                  return false;
+              } 
+              else{
+                  document.getElementById('pasword').innerHTML = "";
+              }      
+
+// confirmation password
+
+              if (conpass ==""){
+
+                  document.getElementById('confpass').innerHTML = " **please confirm the password";
+                  return false;
+              }
+              else{
+                  document.getElementById('confpass').innerHTML = "";
+              }    
+              if(pass!=conpass){
+                  document.getElementById('confpass').innerHTML = " ** password not match ";
+                  return false;
+              }
+              else{
+                  document.getElementById('confpass').innerHTML = "";
+              }    
+
+//phone number 
+
+              if (number ==""){
+
+                  document.getElementById('mnumber').innerHTML = " **please fill the phone number";
+                  return false;
+              }
+              else{
+                  document.getElementById('mnumber').innerHTML = "";
+              }    
+              if(isNaN(number)){
+
+                  document.getElementById('mnumber').innerHTML = " **only numbers are allowed";
+                  return false;
+              }
+              else{
+                  document.getElementById('mnumber').innerHTML = "";
+              }     
+              if(number.length !=10){
+
+                  document.getElementById('mnumber').innerHTML = " **user must enter 10digits";
+                  return false;
+              }
+              else{
+                  document.getElementById('mnumber').innerHTML = "";
+                  return true;
+              }
+          }
+
+  
+</script>
+
+
+
+
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+        <script src="/public/js/bootstrap.min.js"></script>
+</body>
+</html>
